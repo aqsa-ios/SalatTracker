@@ -8,13 +8,13 @@
 import SwiftUI
 
 @main
-struct SalatTrackerApp: App {
-    let persistenceController = PersistenceController.shared
+struct SalahTrackerApp: App {
+    @StateObject private var store = AppStore()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            RootTabsView()
+                .environmentObject(store)
         }
     }
 }
